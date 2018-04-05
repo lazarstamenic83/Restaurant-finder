@@ -131,10 +131,13 @@ a {
 /* stars */
 .holder {
   width: 1100px;
-  height: auto;
-  margin-top: 20px;
+  height: 100vh;
+  margin-top: 0px;
   margin-bottom: 20px;
   border: 1px solid black;
+  float: left;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .holder .restaurant_wrapper {
@@ -156,4 +159,18 @@ a {
 
 .holder .restaurant_wrapper .address {
   cursor: pointer;
+}
+
+.holder .restaurant_wrapper .description_text {
+  margin-right: 20px;
+  text-align: justify;
+  font-size: 13px;
+}
+
+#map {
+  height: 100vh;
+  width: calc(100% - 1102px);
+  overflow: hidden;
+  margin-top: 0px;
+  float: right;
 }
