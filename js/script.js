@@ -1,6 +1,6 @@
 
 function getFoursquare(){
-  var url = "https://api.foursquare.com/v2/venues/search?v=20161016&ll=44.814879%2C%20+20.476069&query=park&intent=browse&radius=2000&client_id=2BQ1RYD4BSFFUCSCUK1MMHAYINQULNTARI1WM04UF0M5HP1J&client_secret=WY1FLJOHGKOFJPAKIMQQNGE0L0BLD0U3QKGKBJXAEJFSFV5Z&limit=3";
+  var url = "https://api.foursquare.com/v2/venues/search?v=20161016&ll=44.814879%2C%20+20.476069&query=park&intent=browse&radius=2000&client_id=2BQ1RYD4BSFFUCSCUK1MMHAYINQULNTARI1WM04UF0M5HP1J&client_secret=WY1FLJOHGKOFJPAKIMQQNGE0L0BLD0U3QKGKBJXAEJFSFV5Z&limit=10";
   $.ajax({
     url: url,
     dataType: 'json',
@@ -95,10 +95,6 @@ function getFoursquare(){
         clearMarkers();
         markers = [];
       }
-
-
-
-
 
 $(document).ready(function() {
 getFoursquare();

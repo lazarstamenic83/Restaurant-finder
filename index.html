@@ -70,32 +70,34 @@
 <!-- keyword search -->
 <script>
 
-// function keyWordSearch() {
-//     var input, filter, div, innerDiv, a, i;
+function keyWordSearch() {
 
-//     input = document.getElementById("search");
+    var input, filter, div, innerDiv, a, i;
 
-//     filter = input.value.toUpperCase();
+    input = document.getElementById("search");
 
-//     div = document.getElementById("holder");
+    filter = input.value.toUpperCase();
 
-//     innerDiv = div.getElementsByTagName("div");
+    div = document.getElementById("holder");
 
-//     for  (i = 0; i < innerDiv.length; i++) {
+    innerDiv = div.getElementsByTagName("div");
 
-//         a = innerDiv[i].getElementsByClassName("adress")[0];
+    for  (i = 0; i < innerDiv.length; i++) {
 
-//         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        a = innerDiv[i].getElementsByTagName("p")[0];
 
-//             innerDiv[i].style.display = "";
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
 
-//         } else {
+            innerDiv[i].style.display = "";
 
-//             innerDiv[i].style.display = "none";
+        } else {
 
-//         }
-//     }
-// }
+            innerDiv[i].style.display = "none";
+
+        }
+    }
+}
+
 </script>
 <!-- keywordsearch -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHwK8MlS4zmgqyu27e2VwNaOxh9ExvIk&callback=initMap" type="text/javascript"></script>
