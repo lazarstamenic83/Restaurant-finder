@@ -5,6 +5,15 @@
 	<title>Restaurant search</title>                  
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+	<!-- for FF, Chrome, Opera -->
+	<link rel="icon" type="image/png" href="css/img/ico16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="css/img/ico32.png" sizes="32x32">
+
+	<!-- for IE -->
+	<link rel="icon" type="image/x-icon" href="css/img/ico32.png" >
+	<link rel="shortcut icon" type="image/x-icon" href="css/img/ico32.png"/>
+
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="responsive.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -13,29 +22,83 @@
 </head>
 
 <body>
-<div class="holder"></div>
 
-<div class="map_holder">	
-	<div id="map"></div>	
-		
-</div>	
-		
+<div class=coverPhoto>
+	
+</div>
 
-	<script>
-	function initMap(){
-		var location = {lat: 44.787599, lng: 20.465822};
-		var map = new google.maps.Map(document.getElementById("map"), {
-			zoom: 16,
-			center: location
-		});
-		var marker = new google.maps.Marker({
-			position: location,
-			map: map
-		});
-	}
-	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHwK8MlS4zmgqyu27e2VwNaOxh9ExvIk&callback=initMap"
-  type="text/javascript"></script>
+<div class="search_holder">
+	<input type="text" class="search" id="search" onkeyup="keyWordSearch()" placeholder="Search......">
+</div>
+
+<div class="wrapper">
+	<div class="holder" id="holder">
+		<!-- offline mode -->
+			<!-- <div class="restaurant_wrapper" id="restaurant_wrapper">
+				<p class="adress">Boom caffe</p>
+			</div>
+			<div class="restaurant_wrapper" id="restaurant_wrapper1">
+				<p class="adress">Radio caffe</p>
+			</div> 
+			<div class="restaurant_wrapper" id="restaurant_wrapper">
+				<p class="adress">Dali caffe</p>
+			</div>
+			<div class="restaurant_wrapper" id="restaurant_wrapper">
+				<p class="adress">Pera caffe</p>
+			</div>
+			<div class="restaurant_wrapper" id="restaurant_wrapper">
+				<p class="adress">Zika caffe</p>
+			</div>
+			<div class="restaurant_wrapper" id="restaurant_wrapper">
+				<p class="adress">Mika caffe</p>
+			</div>
+			<div class="restaurant_wrapper" id="restaurant_wrapper">
+				<p class="adress">Zoran caffe</p>
+			</div> -->
+		<!-- offline mode -->
+			
+	</div>	
+	<div id="map"></div>
+</div>
+
+<div class="footer">
+	<div class="textHolder">
+		<p>Restaurant search by Lazar Stamenic</p>
+		<a href="https://www.facebook.com/lazar.stamenic" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+	</div>
+</div>
+<!-- keyword search -->
+<script>
+
+// function keyWordSearch() {
+//     var input, filter, div, innerDiv, a, i;
+
+//     input = document.getElementById("search");
+
+//     filter = input.value.toUpperCase();
+
+//     div = document.getElementById("holder");
+
+//     innerDiv = div.getElementsByTagName("div");
+
+//     for  (i = 0; i < innerDiv.length; i++) {
+
+//         a = innerDiv[i].getElementsByClassName("adress")[0];
+
+//         if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+//             innerDiv[i].style.display = "";
+
+//         } else {
+
+//             innerDiv[i].style.display = "none";
+
+//         }
+//     }
+// }
+</script>
+<!-- keywordsearch -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHwK8MlS4zmgqyu27e2VwNaOxh9ExvIk&callback=initMap" type="text/javascript"></script>
 </body>
 
 </html>
