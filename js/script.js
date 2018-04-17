@@ -1,11 +1,11 @@
 
 function getFoursquare(){
-  var url = "https://api.foursquare.com/v2/venues/search?v=20161016&ll=44.814879%2C%20+20.476069&query=park&intent=browse&radius=2000&client_id=2BQ1RYD4BSFFUCSCUK1MMHAYINQULNTARI1WM04UF0M5HP1J&client_secret=WY1FLJOHGKOFJPAKIMQQNGE0L0BLD0U3QKGKBJXAEJFSFV5Z&limit=10";
+  var url = "https://api.foursquare.com/v2/venues/search?v=20161016&ll=44.814879%2C%20+20.476069&query=park&intent=browse&radius=2000&client_id=2BQ1RYD4BSFFUCSCUK1MMHAYINQULNTARI1WM04UF0M5HP1J&client_secret=WY1FLJOHGKOFJPAKIMQQNGE0L0BLD0U3QKGKBJXAEJFSFV5Z&limit=8";
   $.ajax({
     url: url,
     dataType: 'json',
     success: function(data){
-    	
+    	 
       	var venues = data.response.venues;
       	$.each(venues, function(i,venue){
       		var venues_address = venue.location.address;
@@ -18,7 +18,7 @@ function getFoursquare(){
           $( "#address" +i).click(function () {
                 var adressMarker = {lat: venues_lat, lng: venues_lng};
                 var startPosition = {lat: 44.814879, lng: 20.476069};
-                console.log(adressMarker);
+                
                  deleteMarkers();
 
                 addMarker(startPosition);
@@ -28,26 +28,65 @@ function getFoursquare(){
           //click adress
 
         //second ajax
-		    var url = "https://api.foursquare.com/v2/venues/"+venue.id+"/tips?group=venue&client_id=2BQ1RYD4BSFFUCSCUK1MMHAYINQULNTARI1WM04UF0M5HP1J&client_secret=WY1FLJOHGKOFJPAKIMQQNGE0L0BLD0U3QKGKBJXAEJFSFV5Z&v=20180404&limit=1";
+		    var url1 = "https://api.foursquare.com/v2/venues/"+venue.id+"/tips?group=venue&client_id=2BQ1RYD4BSFFUCSCUK1MMHAYINQULNTARI1WM04UF0M5HP1J&client_secret=WY1FLJOHGKOFJPAKIMQQNGE0L0BLD0U3QKGKBJXAEJFSFV5Z&v=20180404&limit=1";
 		      $.ajax({
-			     url: url,
+			     url: url1,
 			     dataType: 'json',
 			     success: function(data1){
-			   
+			    
 			       var venues1 = data1.response.tips.items;
       	     $.each(venues1, function(index,venue1){
-        	   $('#restaurant_wrapper' +i).append('<p class="description_text">' + venue1.text + '</p>');      
 
+        	   $('#restaurant_wrapper' +i).append('<p class="description_text">' + venue1.text + '</p>');      
+            
           });//second each
 
-    }//second success
+         }//second success
 
-  });//second ajax
-    //second ajax
+         });//second ajax
+        //second ajax
+
+
+      //third ajax
+        var url2 = "https://api.foursquare.com/v2/venues/"+venue.id+"/photos?group=venue&client_id=2BQ1RYD4BSFFUCSCUK1MMHAYINQULNTARI1WM04UF0M5HP1J&client_secret=WY1FLJOHGKOFJPAKIMQQNGE0L0BLD0U3QKGKBJXAEJFSFV5Z&v=20180404&limit=1";
+          $.ajax({
+           url: url2,
+           dataType: 'json',
+           success: function(data2){
+             
+             var venues2 = data2.response.photos.items;
+             $.each(venues2, function(index,venue2){
+
+              $('#restaurant_wrapper' +i).append('<div class="getDetailsHolder"><p class="getDetails" id="getDetails'+i+'">More details....</p></div>');
+              $( "#getDetails"+i).click(function() {
+              console.log('aaaaaa');
+              
+             $('#detailsHolder').append("<div class='imgWrapper' id='imgWrapper"+i+"'></div>");
+
+             $('#imgWrapper'+i).css('background-image', 'url('+venue2.prefix+'500x500'+venue2.suffix+')');
+             
+             $(".detailsHolder").fadeIn("slow");
+
+            });
+            
+
+            
+          });//third each
+
+
+         }//third success
+
+         });//third ajax
+        //third ajax
+
+
+
+
+
       });//each
     }//success
   });//ajax
-};//getfourspace
+};//getfoursqare
 
       var map;
       var markers = [];
@@ -98,6 +137,11 @@ function getFoursquare(){
 
 $(document).ready(function() {
 getFoursquare();
+   $( ".closeButton").click(function() {
+                $('.imgWrapper').remove();
+                $(".detailsHolder").fadeOut("slow");
+
+              });
 
 });//doc.ready
 

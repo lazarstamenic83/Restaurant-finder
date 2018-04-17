@@ -90,11 +90,13 @@
 			margin-bottom: 10px;
 			margin-left: 33px;
 			overflow: hidden;
+			position: relative;
 			
 				p{
 					margin-left: 20px;
 					margin-top: 20px;
 					font-family: 'Montserrat', sans-serif;
+					float: left;
 				}
 		.address{
 			cursor: pointer;
@@ -153,3 +155,51 @@
   background-color: black;
   outline: 1px solid red;
 }
+/*Details, details photo, menu*/
+.detailsHolder{
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	position: fixed;
+	z-index: 1;
+	display: none;
+	.closeButton{
+	height: 40px ;
+	width: 40px ;
+	float: right;
+	margin-right: 20px;
+	margin-top: 20px;
+	background-image: url("img/closeIcon.png") ;
+	background-size: 99%;
+	cursor: pointer;
+
+}
+	
+}
+.getDetailsHolder{
+	
+	height: 30px;
+	width: 120px;
+	position: absolute;
+	margin-top: 170px; 
+	margin-left: 20px;
+.getDetails{
+	cursor: pointer;
+	display: block;
+	width: 120px;
+	height: 30px;
+	margin-left: 0px !important;
+	margin-top: 0px !important;
+	
+}
+
+}
+.imgWrapper{
+	height: 500px;
+	width: 500px;
+	display: inline-block;
+	margin-top: 50px;
+	margin-left: 50px;
+	
+}
+/*Details, details photo, menu*/
