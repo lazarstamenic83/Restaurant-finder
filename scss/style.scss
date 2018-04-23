@@ -103,6 +103,10 @@
 		.address{
 			cursor: pointer;
 		}
+		.warning{
+					font-family: 'Montserrat', sans-serif;
+
+		}
 		.description_text{
 			
 			text-align: justify;
@@ -157,7 +161,7 @@
   background-color: black;
   outline: 1px solid red;
 }
-/*Details, details photo, menu*/
+/*Details, details photo, likes*/
 .detailsHolder{
 	height: 100vh;
 	width: 100%;
@@ -199,9 +203,49 @@
 .imgWrapper{
 	height: 500px;
 	width: 500px;
-	display: inline-block;
+	float: left;
 	margin-top: 50px;
 	margin-left: 50px;
+	border: 1px solid white;
+	border-radius: 20px; 
+	-webkit-box-shadow: 0px 1px 7px 1px rgba(255,255,255,0.75);
+    -moz-box-shadow: 0px 1px 7px 1px rgba(255,255,255,0.75);
+    box-shadow: 0px 1px 7px 1px rgba(255,255,255,0.75);
+}
+.likesHolder{
+    height: 100px;
+	width: 100px;
+	float: left;
+	margin-top: 50px ;
+	margin-left: 50px;
+	border-radius: 100%; 
 	
 }
-/*Details, details photo, menu*/
+.nameSurname{
+	margin-top: 130px;
+	margin-left: -125px;
+	height: 160px;
+	width: 150px;
+	float: left;
+	
+	p{
+		color: white;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 16px;
+		text-align: center;
+
+	}
+	p:nth-child(3){
+		margin-top: 20px;
+	}
+	p:nth-child(4){
+		margin-top: 20px;
+		font-size: 26px;
+	}
+	i{
+		color: white;
+		font-size: 26px;
+		margin-left: 120px;
+	}
+}
+/*Details, details photo, likes*/
